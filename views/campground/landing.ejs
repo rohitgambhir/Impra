@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Impra</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/landing.css">
+    <style>
+        body{
+            font-family: 'Bitter', serif;
+            font-size: 101%;
+            background-size: cover;
+            background-color: white;
+
+        }
+        .newmobile{
+            display: none;
+        }
+        .newdesktop{
+            display:none;
+        }
+        @media only screen and (max-width: 768px) {
+            .newmobile{
+                display:inline-block;
+            }
+        }
+        @media only screen and (min-width: 768px) {
+            .newdesktop{
+                display:inline-block;
+            }
+        }
+        #bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            /* Preserve aspet ratio */
+            min-width: 100%;
+            min-height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<img src="/wall.jpg" id="bg" alt="">
+
+<% include ../partials/navbar.ejs %>
+<div class="container-fluid"  style="margin-top: 5em;text-align: center;">
+    <% if(success && success.length>0){ %>
+    <div class="alert alert-success" role="alert">
+        <h4><%= success %></h4>
+    </div>
+    <% } %>
+    <% if(error && error.length>0){ %>
+    <div class="alert alert-danger" role="alert">
+        <h4><%= error %></h4>
+    </div>
+    <% } %>
+</div>
+<!--**************-->
+<div class='container-fluid'>
+    <div id="landing-header">
+        <h1>Welcome to Impra!</h1>
+        <a href="/campground" class="btn btn-lg btn-secondary"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Start Exploring !</a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--<script src="/scripts/background.js"></script>-->
+</body>
+</html>

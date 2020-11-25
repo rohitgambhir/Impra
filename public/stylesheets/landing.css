@@ -1,0 +1,21 @@
+
+body {
+    background-color: #000;
+}
+
+h1 {
+    font-size: 4em;
+    text-shadow: 2px 2px 10px black;
+}
+
+#landing-header {
+    top:50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%, 0);
+    position: absolute;
+    text-align: center;
+}
+
+#landing-header h1 {
+    color: #fff;
+}

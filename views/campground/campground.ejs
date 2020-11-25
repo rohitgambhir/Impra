@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Impra</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Bitter', serif;
+            font-size: 101%;
+            background-size: cover;
+            background-color: white;
+        }
+        .custom{
+            height: 20em;
+            width: 28em;
+            background-size: cover;
+            margin: 0 auto;
+            position: relative;
+            background-position: center center;
+        }
+        .background {
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            position: absolute;
+            bottom: -5%;
+            opacity: 0.5;
+        }
+        .newmobile{
+            display: none;
+        }
+        .newdesktop{
+            display:none;
+        }
+        @media only screen and (max-width: 768px) {
+            .newmobile{
+                display:inline-block;
+            }
+        }
+        @media only screen and (min-width: 768px) {
+            .newdesktop{
+                display:inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+<% include ../partials/navbar.ejs %>
+
+<div class="container-fluid"  style="margin-top: 5em;text-align: center;">
+    <% if(success && success.length>0){ %>
+    <div class="alert alert-success" role="alert">
+        <h4><%= success %></h4>
+    </div>
+    <% } %>
+    <% if(error && error.length>0){ %>
+    <div class="alert alert-danger" role="alert">
+        <h4><%= error %></h4>
+    </div>
+    <% } %>
+</div>
+<!--**************-->
+
+<div class="container-fluid main" style="text-align: center;">
+    <div class="row" style="margin-top: 5em;">
+        <% for(var i=0;i<campground.length;i++){ %>
+        <div class="col-12 col-md-3 col-sm-6">
+            <div class="card border border-success" style="height: 33em;box-shadow: -0.2em 0.5em 2em black;margin-bottom: 2em;">
+                <div class="card-body">
+                    <h1 class="card-title"><%=campground[i].name%></h1>
+                    <p class="card-text" style="font-size: large"><%=campground[i].description.substring(0,350)%> ...</p>
+                    <a href="/campground/<%=campground[i]._id%>" class="btn btn-outline-info">Read More</a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
